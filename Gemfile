@@ -45,7 +45,7 @@ group :development do
   gem 'spring'
 
   gem 'pry-rails'
-  gem 'compass-rails'
+  gem 'compass-rails','~> 2.0'
   gem 'sprockets','2.11.0'
 end
 
