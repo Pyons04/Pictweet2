@@ -4,11 +4,11 @@ class TweetsController < ApplicationController
 
 
   def index
-    @tweets = Tweet.order("created_at DESC").page(params[:page]).per(1)
+    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(1)
   end
 
   def create
-    Tweet.create(name:tweet_params[:name],image: tweet_params[:image],text:tweet_params[:text],user_id:current_usre.id)
+    Tweet.create(image: tweet_params[:image],text:tweet_params[:text],user_id:current_usre.id)
   end
 
   def new
@@ -20,7 +20,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.permit(:name,:image,:text,)
+    params.permit(:image,:text,)
   end
 
 end
