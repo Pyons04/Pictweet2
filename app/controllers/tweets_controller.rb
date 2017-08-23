@@ -1,14 +1,14 @@
 class TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.all
-  end
-
-  def new
+    @tweets = Tweet.order("created_at DESC")
   end
 
   def create
     Tweet.create(tweet_params)
+  end
+
+  def new
   end
 
   private
