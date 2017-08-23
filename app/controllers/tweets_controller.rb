@@ -33,6 +33,10 @@ class TweetsController < ApplicationController
      tweet.update(tweet_params)
   end
 
+  def show
+     @tweet =Tweet.find(params[:id])
+  end
+
   private
   def tweet_params
     params.permit(:image,:text,)
